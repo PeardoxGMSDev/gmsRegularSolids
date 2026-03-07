@@ -19,22 +19,6 @@ function create_cube(radius) {
     ];
     
     // Faces with CORRECTED CCW ordering (2 triangles per face, 12 triangles total)
-    /*
-    var faces = [
-        // Bottom face (Y = -r, normal pointing down)
-        [0, 4, 5], [0, 5, 1],
-        // Top face (Y = r, normal pointing up)
-        [3, 7, 6], [3, 6, 2],
-        // Front face (Z = r, normal pointing forward)
-        [4, 5, 6], [4, 6, 7],
-        // Back face (Z = -r, normal pointing backward)
-        [1, 0, 3], [1, 3, 2],
-        // Right face (X = r, normal pointing right)
-        [5, 1, 2], [5, 2, 6],
-        // Left face (X = -r, normal pointing left)
-        [0, 4, 7], [0, 7, 3]
-    ];
-    */
     var faces = [
         // Bottom face — CORRECT, unchanged
         [0, 4, 5], [0, 5, 1],
@@ -109,7 +93,7 @@ function create_simple_cube_texture(size = 256) {
     
     // Define colors for each face
     var colors = [c_red, c_green, c_blue, c_yellow, c_purple, c_orange];
-    var face_names = ["6", "1", "3", "4", "2", "5"];
+    var face_names = ["3", "4", "6", "1", "5", "2"];
     
     // Draw colored rectangles for each face in cross pattern
     // Top face
@@ -154,8 +138,11 @@ function create_simple_cube_texture(size = 256) {
     draw_text(three_quarter + quarter/2, quarter + quarter/2, face_names[3]); // Back
     draw_text(quarter + quarter/2, three_quarter + quarter/2, face_names[0]); // Bottom
     
+    // Reset all defaults
     surface_reset_target();
     draw_set_color(c_white);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_left);
 
     return sprite_create_from_surface(surf, 0, 0, size, size, false, false, 0, 0);    
     // return surface_get_texture(surf);

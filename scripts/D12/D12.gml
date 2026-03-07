@@ -206,8 +206,11 @@ function create_dodecahedron_texture(size = 256) {
         draw_line(0, i * cell_h, size, i * cell_h);
     }
 
+    // Reset all defaults
     surface_reset_target();
     draw_set_color(c_white);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_left);
 
     return sprite_create_from_surface(
         surf, 0, 0, size, size, false, false, 0, 0

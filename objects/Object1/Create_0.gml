@@ -1,13 +1,9 @@
 port = 0;
 global.spr = undefined;
 
-active = [1, 1, 1, 1];
+active = [1, 1, 1, 1, 1, 1];
 var spr;  
-/*
-obj = create_tetrahedron_vertex_buffer(100);
-tex = create_simple_tetrahedron_texture();
-tex2 = sprite_get_texture(Sprite2, 1);
-*/
+
 if(active[0]) {
     obj1 = create_cube_vertex_buffer(100);
     spr = create_simple_cube_texture();
@@ -32,9 +28,21 @@ if(active[3]) {
     tex4 = sprite_get_texture(spr, 0);
 }
 
+if(active[4]) {
+    obj5 = create_tetrahedron_vertex_buffer(100);
+    spr = create_tetrahedron_texture();
+    tex5 = sprite_get_texture(spr, 0);
+}
+
+if(active[5]) {
+    obj6 = create_octahedron_vertex_buffer(100);
+    spr = create_octahedron_texture();
+    tex6 = sprite_get_texture(spr, 0);
+}
 
 
 
+dorot = true;
 rotX = 0;
 rotY = 0;
 rotZ = 0;

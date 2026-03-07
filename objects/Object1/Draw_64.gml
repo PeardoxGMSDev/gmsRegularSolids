@@ -40,12 +40,13 @@ if(view_enabled) {
 
 draw_text(20, 20, "View : " + string(vi));
 draw_text(20, 40, "ViewsEnabled : " + string_bool(view_enabled) + ", Default Camera : " + string(dc) + ", Camera for VP #" + string(port) + " : " + string(vc) + ", Up : " + string(up)); 
+draw_text(20, 60, "rotX : " + string(rotX) + ", rotY : " + string(rotY) + ", rotZ : " + string(rotZ)); 
 
-draw_string_matrix4(20, 80, "Actual View", v);
-draw_string_matrix4(window_get_width() / 2, 80, "Actual Proj", p);
+draw_string_matrix4(20, 100, "Actual View", v);
+draw_string_matrix4(window_get_width() / 2, 100, "Actual Proj", p);
 
-draw_string_matrix4(20, 200, "Constructed View : " + string(vi.get_center_x()) + ", " + string(vi.get_center_y()) + ", " + string(vi.get_center_z()), cv);
-draw_string_matrix4(window_get_width() / 2, 200, "Constructed Proj : " + string(vi.get_width()) + ", " + string(-vi.get_height()), cp);
+draw_string_matrix4(20, 220, "Constructed View : " + string(vi.get_center_x()) + ", " + string(vi.get_center_y()) + ", " + string(vi.get_center_z()), cv);
+draw_string_matrix4(window_get_width() / 2, 220, "Constructed Proj : " + string(vi.get_width()) + ", " + string(-vi.get_height()), cp);
 
 draw_string_matrix4(20, 440, "Diff View", matrix4_subtract(v, cv), true);
 draw_string_matrix4(window_get_width() / 2, 440, "Diff Proj", matrix4_subtract(p, cp), true);
