@@ -167,9 +167,15 @@ function create_tetrahedron_texture(size = 256) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_left);
 
-    return sprite_create_from_surface(
+    var spr = sprite_create_from_surface(
         surf, 0, 0, size, size, false, false, 0, 0
     );
+    
+    if(!file_exists("c:\\temp\\d4.png")) {
+        sprite_save(spr, 0, "c:\\temp\\d4.png");
+    }
+
+    return spr;
 }
 
 

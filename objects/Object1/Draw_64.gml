@@ -1,7 +1,9 @@
-var v, p, w, cv, cp, vc, vi, dc, angle, up;
+var v, p, w, cv, cp, vc, dc, angle, up;
+
+vi.update();
+
 vc = view_get_camera(port);
 dc = camera_get_default();
-vi = new view_info(port);
 angle = 0;
 
 display_set_gui_size(vi.get_width(), vi.get_height());
@@ -40,7 +42,7 @@ if(view_enabled) {
 
 draw_text(20, 20, "View : " + string(vi));
 draw_text(20, 40, "ViewsEnabled : " + string_bool(view_enabled) + ", Default Camera : " + string(dc) + ", Camera for VP #" + string(port) + " : " + string(vc) + ", Up : " + string(up)); 
-draw_text(20, 60, "FPS : " + string(fps) + ", rotX : " + string_format(rotX, 3, 0) + ", rotY : " + string_format(rotY, 3, 0) + ", rotZ : " + string_format(rotZ, 3, 0)); 
+draw_text(20, 60, "FPS : " + string(fps) + ", rotX : " + string_format(rotX, 3, 0) + ", rotY : " + string_format(rotY, 3, 0) + ", rotZ : " + string_format(rotZ, 3, 0) + ", centerX : " + string_format(vi.get_center_x(), 3, 0) + ", centerY : " + string_format(vi.get_center_y(), 3, 0)); 
 
 draw_string_matrix4(20, 100, "Actual View", v);
 draw_string_matrix4(window_get_width() / 2, 100, "Actual Proj", p);

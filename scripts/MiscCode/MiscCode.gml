@@ -60,28 +60,45 @@ function string_bool(v) {
 }
 
 function view_info(port = 0, znear = 1, zfar = 32000) constructor {
-    if(view_enabled && view_visible[port]) {
-        self.width = view_get_wport(port);
-        self.height = view_get_hport(port);
-        self.left = view_get_xport(port);
-        self.top = view_get_yport(port);
-        self.right = self.left + self.width;
-        self.bottom = self.top + self.height;
-        self.znear = 0;
-        self.zfar = zfar;
-        self.depth = self.zfar / 2;
-    } else {
-        self.width = window_get_width();
-        self.height = window_get_height();
-        self.left = 0;// -self.width / 2;
-        self.top = 0;//-self.height / 2;
-        self.right = self.left + self.width;
-        self.bottom = self.top + self.height;
-        self.znear = znear;
-        self.zfar = zfar;
-        self.depth = self.zfar / 2;
-    }
+    self.width = 0;
+    self.height = 0;
+    self.left = 0;
+    self.top = 0;
+    self.right = 0;
+    self.bottom = 0;
+    self.znear = 0;
+    self.zfar = 0;
+    self.depth = 0;
+
+    self.update(port, znear, zfar);
     
+    static update = function(port = 0, znear = 1, zfar = 32000) {
+        if(view_enabled && view_visible[port]) {
+            self.width = view_get_wport(port);
+            self.height = view_get_hport(port);
+            self.left = view_get_xport(port);
+            self.top = view_get_yport(port);
+            self.right = self.left + self.width;
+            self.bottom = self.top + self.height;
+            self.znear = 0;
+            self.zfar = zfar;
+            self.depth = self.zfar / 2;
+        } else {
+            if((self.width != 0) && (self.width != window_get_width())) {
+                surface_resize(application_surface, window_get_width(), window_get_height());
+            }
+            self.width = window_get_width();
+            self.height = window_get_height();
+            self.left = 0;// -self.width / 2;
+            self.top = 0;//-self.height / 2;
+            self.right = self.left + self.width;
+            self.bottom = self.top + self.height;
+            self.znear = znear;
+            self.zfar = zfar;
+            self.depth = self.zfar / 2;
+        }
+    }
+        
     static get_center_x = function() {
         return self.left + (self.width / 2);
     }

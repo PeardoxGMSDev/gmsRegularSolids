@@ -15,7 +15,7 @@
   "option_tvos_output_dir":"~/GameMakerStudio2/tvOS",
   "option_tvos_podfile_lock_path":"${options_dir}\\tvos\\Podfile.lock",
   "option_tvos_podfile_path":"${options_dir}\\tvos\\Podfile",
-  "option_tvos_scale":0,
+  "option_tvos_scale":1,
   "option_tvos_splashscreen":"${base_options_dir}/tvos/splash/splash.png",
   "option_tvos_splashscreen_2x":"${base_options_dir}/tvos/splash/splash_2x.png",
   "option_tvos_splash_time":0,

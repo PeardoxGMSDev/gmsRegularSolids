@@ -1,4 +1,5 @@
 port = 0;
+vi = new view_info(port);
 global.spr = undefined;
 
 active = [1, 1, 1, 1, 1, 1];

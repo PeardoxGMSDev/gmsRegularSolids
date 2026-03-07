@@ -201,9 +201,15 @@ function create_octahedron_texture(size = 512) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_left);
 
-    return sprite_create_from_surface(
+    var spr = sprite_create_from_surface(
         surf, 0, 0, size, size, false, false, 0, 0
     );
+    
+    if(!file_exists("c:\\temp\\d8.png")) {
+        sprite_save(spr, 0, "c:\\temp\\d8.png");
+    }
+
+    return spr;
 }
 
 /// @function create_octahedron_vertex_buffer

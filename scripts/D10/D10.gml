@@ -212,6 +212,41 @@ function create_trapezohedron_texture(size = 256, radius = 1, pole_dist = 1) {
     draw_clear(c_black);
     
     for (var i = 0; i < 10; i++) {
+        var col    = i mod atlas_cols;
+        var row    = floor(i / atlas_cols);
+        var ox     = col * cell_w;
+        var oy     = row * cell_h;
+
+        // Bottom faces (i >= 5) must paint the kite with V flipped,
+        // to match the V-flip applied to their mesh UVs.
+        var v_flip = (i >= 5);
+
+        draw_set_color(face_colors[i]);
+        draw_primitive_begin(pr_trianglefan);
+        draw_vertex(ox + 0.5 * cell_w, oy + 0.5 * cell_h);
+        for (var k = 0; k < 4; k++) {
+            var ku = kite_uvs[k][0];
+            var kv = v_flip ? (1.0 - kite_uvs[k][1]) : kite_uvs[k][1];
+            draw_vertex(ox + ku * cell_w, oy + kv * cell_h);
+        }
+        // Close the fan
+        var ku0 = kite_uvs[0][0];
+        var kv0 = v_flip ? (1.0 - kite_uvs[0][1]) : kite_uvs[0][1];
+        draw_vertex(ox + ku0 * cell_w, oy + kv0 * cell_h);
+        draw_primitive_end();
+
+        draw_set_color(c_white);
+        draw_set_font(-1);
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_text(
+            ox + 0.5 * cell_w,
+            oy + 0.5 * cell_h,
+            string(face_labels[i])
+        );
+    }    
+/*    
+    for (var i = 0; i < 10; i++) {
         var col = i mod atlas_cols;
         var row = floor(i / atlas_cols);
         var ox  = col * cell_w;
@@ -232,7 +267,7 @@ function create_trapezohedron_texture(size = 256, radius = 1, pole_dist = 1) {
             string(face_labels[i])
         );
     }
-    
+*/    
     draw_set_color(c_dkgrey);
     for (var i = 0; i <= atlas_cols; i++) draw_line(i*cell_w, 0, i*cell_w, size);
     for (var i = 0; i <= atlas_rows; i++) draw_line(0, i*cell_h, size, i*cell_h);
@@ -246,7 +281,9 @@ function create_trapezohedron_texture(size = 256, radius = 1, pole_dist = 1) {
         surf, 0, 0, size, size, false, false, 0, 0
     );
     
-    sprite_save(spr, 0, "c:\\temp\\d10.png");
+    if(!file_exists("c:\\temp\\d10.png")) {
+        sprite_save(spr, 0, "c:\\temp\\d10.png");
+    }
 
     return spr;
 }
