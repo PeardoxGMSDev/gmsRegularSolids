@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"D6",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"D6",
+  "parent":{
+    "name":"MatrixView",
+    "path":"MatrixView.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
