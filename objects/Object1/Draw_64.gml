@@ -40,7 +40,7 @@ if(view_enabled) {
 
 draw_text(20, 20, "View : " + string(vi));
 draw_text(20, 40, "ViewsEnabled : " + string_bool(view_enabled) + ", Default Camera : " + string(dc) + ", Camera for VP #" + string(port) + " : " + string(vc) + ", Up : " + string(up)); 
-draw_text(20, 60, "rotX : " + string(rotX) + ", rotY : " + string(rotY) + ", rotZ : " + string(rotZ)); 
+draw_text(20, 60, "FPS : " + string(fps) + ", rotX : " + string_format(rotX, 3, 0) + ", rotY : " + string_format(rotY, 3, 0) + ", rotZ : " + string_format(rotZ, 3, 0)); 
 
 draw_string_matrix4(20, 100, "Actual View", v);
 draw_string_matrix4(window_get_width() / 2, 100, "Actual Proj", p);
