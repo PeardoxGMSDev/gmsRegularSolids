@@ -28,6 +28,7 @@
     {"id":{"name":"D6","path":"scripts/D6/D6.yy",},},
     {"id":{"name":"D8","path":"scripts/D8/D8.yy",},},
     {"id":{"name":"MiscCode","path":"scripts/MiscCode/MiscCode.yy",},},
+    {"id":{"name":"polyhedon","path":"scripts/polyhedon/polyhedon.yy",},},
     {"id":{"name":"dummy","path":"sprites/dummy/dummy.yy",},},
     {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},},
   ],

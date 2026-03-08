@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"polyhedon",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"polyhedon",
+  "parent":{
+    "name":"MatrixView",
+    "path":"MatrixView.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

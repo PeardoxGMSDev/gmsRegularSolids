@@ -20,17 +20,17 @@ function create_cube(radius) {
     
     // Faces with CORRECTED CCW ordering (2 triangles per face, 12 triangles total)
     var faces = [
-        // Bottom face — CORRECT, unchanged
+        // Bottom face
         [0, 4, 5], [0, 5, 1],
-        // Top face — FIXED
+        // Top face
         [3, 6, 7], [3, 2, 6],
-        // Front face — FIXED
+        // Front face
         [4, 6, 5], [4, 7, 6],
-        // Back face — FIXED
+        // Back face
         [1, 3, 0], [1, 2, 3],
-        // Right face — FIXED
+        // Right face
         [5, 2, 1], [5, 6, 2],
-        // Left face — FIXED
+        // Left face
         [0, 7, 4], [0, 3, 7]
     ];    
         
