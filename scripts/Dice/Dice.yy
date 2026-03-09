@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"D12",
+  "%Name":"Dice",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"D12",
+  "name":"Dice",
   "parent":{
     "name":"MatrixView",
     "path":"MatrixView.yyp",

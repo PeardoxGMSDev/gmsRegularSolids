@@ -11,6 +11,7 @@ if(keyboard_check_pressed(vk_space)) {
         view_enabled = true;
     }
      */
+    dorot = !dorot;
 }
 
 if(keyboard_check_pressed(vk_f10)) {
